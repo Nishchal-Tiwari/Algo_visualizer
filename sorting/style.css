@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font: optional;
+    font-size: medium;
+    font-weight: 100;
+}
+
+.nav {
+    height: fit-content;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+#bubbleit {
+    display: none;
+}
+
+.bubble p {
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+#bubbleit:checked~p {
+    color: blue;
+}
+
+.app {
+    border: 2px solid black;
+    width: 90vw;
+    height: 80vh;
+    margin: auto;
+    margin-top: 5px;
+}
+
+.graph {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    align-items: flex-end;
+}
+
+.bars {
+    background-color: black;
+    height: 100px;
+    transition: height 500ms;
+}
+
+.algos {
+    display: flex;
+    gap: 10px;
+}

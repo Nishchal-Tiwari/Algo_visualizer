@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-size: small;
+}
+
+.nav {
+    display: flex;
+    height: fit-content;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.algos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.app {
+    width: 90vw;
+    max-height: 900px;
+    margin: auto;
+    margin-top: 5px;
+    height: 80vh;
+    border: 2px solid black;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+#inpt {
+    width: 230px;
+}

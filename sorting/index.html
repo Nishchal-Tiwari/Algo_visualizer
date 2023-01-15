@@ -18,7 +18,8 @@
 
     <div class="nav">
         <div class="icon">
-            <h1>ICON</h1>
+            
+            <img src="./1.png"   alt="">
         </div>
         <div class="options">
             <li>
@@ -27,12 +28,20 @@
         </div>
         <div class="algos">
             <div class="bubble">
-                <label for="bubbleit"> <input type="checkbox" id="bubbleit"><p>bubble sort</p></label>
+                
+                    <button type="button" class="btn btn-outline-primary" onclick="bs()">Bubble Sort</button>
+                    <button type="button" class="btn btn-outline-info"  onclick="ms()">Merge Sort</button>
+                    <button type="button" class="btn btn-outline-success" onclick="ss()">Selection sort</button>
+                    <button type="button"   class="btn btn-outline-light"onclick="is()">Insertion sort</button>
+                    <button type="button" class="btn btn-outline-warning" onclick="qs()">Quick Sort</button>
+                    
+                
+            </div>
             </div>
 
         </div>
     </div>
-    <div class="app">
+    <div class="app gradient-border" id="mainapp" >
         <div class="graph" id="graph">
 
 

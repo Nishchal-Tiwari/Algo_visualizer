@@ -37,6 +37,7 @@ const bars = cl('bars')
 const bar_num = id('bar_number');
 //event listeners
 bar_num.addEventListener('keyup', () => {
+    id('mainapp').classList.remove('gradient-border')
     addbar(parseInt(bar_num.value))
     stop()
 })

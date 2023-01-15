@@ -1,5 +1,7 @@
 const id = i => document.getElementById(i);
 const cl = c => document.getElementsByClassName(c);
+const speed_slider = id('speed')
+const speed = () => int(speed_slider.value)
 const table = id('maze')
 const app = id('app')
 const int = i => parseInt(i)
@@ -10,9 +12,13 @@ const drag = (e) => e.dataTransfer.setData("Text", e.target.id);
 const drop = e => {
     var data = e.dataTransfer.getData("Text");
     e.target.appendChild(document.getElementById(data));
+    if(data==='rat'){
+    dragoncordx=parseInt(e.target.id.split(' ')[0])
+    dragoncordy=parseInt(e.target.id.split(' ')[1])}
     e.preventDefault();
 }
-
+var dragoncordx=0;
+var dragoncordy=0;
 const arr = (i, j) => rows[i].getElementsByClassName('c')[j]
 
 
@@ -33,7 +39,8 @@ const makeArray = (r, c) => {
         for (var j = 0; j < c; j++) {
             var td = document.createElement('td');
             td.className = 'c';
-            td.style.height = (app.offsetHeight / r) - 2 + 'px';
+            td.id=i+" "+j
+            td.style.height = (app.offsetHeight / r)-2  + 'px';
             td.style.width = td.style.height;
             td.ondrop = drop;
             td.ondragover = allowDrop;
@@ -82,7 +89,16 @@ n.addEventListener('keyup', () => {
 
 
 const nqueen = async(i) => {
+    if(rows.length!=rows[0].getElementsByClassName('c').length){
+        
+        alert("Rows and column no. should be same")
+        return;
 
+    }
+    if(rows.length>10){
+        alert("Too large no. ")
+        return
+    }
     if (i >= rows.length)
         return true;
 
@@ -91,10 +107,14 @@ const nqueen = async(i) => {
         if (await isSafe(i, j)) {
 
             arr(i, j).style.backgroundColor = 'black';
-            await sleep(200);
+            arr(i, j).innerHTML = '<i class="fa-solid fa-chess-queen queen"></i>';
+            
+            await sleep(speed());
             if (await nqueen(i + 1))
-                return true;
+            return true;
             arr(i, j).style.backgroundColor = 'white';
+            arr(i, j).innerHTML = '';
+            
 
         }
         arr(i, j).style.backgroundColor = 'white';
@@ -106,7 +126,7 @@ const isSafe = async(col, row) => {
     for (var i = 0; i < col; i++) {
         var temp = arr(i, row).style.backgroundColor;
         arr(i, row).style.backgroundColor = 'blue';
-        await sleep(200);
+        await sleep(speed());
         arr(i, row).style.backgroundColor = temp;
         if (arr(i, row).style.backgroundColor.localeCompare('black') == 0) {
 
@@ -117,7 +137,7 @@ const isSafe = async(col, row) => {
     for (i = col, j = row; i >= 0 && j >= 0; i--, j--) {
         var temp = arr(i, j).style.backgroundColor;
         arr(i, j).style.backgroundColor = 'blue';
-        await sleep(100);
+        await sleep(speed());
         arr(i, j).style.backgroundColor = temp;
         if (arr(i, j).style.backgroundColor.localeCompare('black') == 0)
             return false;
@@ -127,26 +147,28 @@ const isSafe = async(col, row) => {
     for (i = col, j = row; i >= 0 && j < rows.length; i--, j++) {
         var temp = arr(i, j).style.backgroundColor;
         arr(i, j).style.backgroundColor = 'blue';
-        await sleep(100);
+        await sleep(speed());
         arr(i, j).style.backgroundColor = temp;
         if (arr(i, j).style.backgroundColor.localeCompare('black') == 0)
             return false;
     }
     return true;
 }
-const gm = (i, j) => {
-    mb(i, j, 0.3);
+const gm = () => {
+    mb(rows.length,rows[0].getElementsByClassName('c').length, 0.3);
     for (var i = 0; i < 5; i++)
-        cb(i, j, 0.2);
+        cb(rows.length,rows[0].getElementsByClassName('c').length, 0.2);
     for (var i = 0; i < 2; i++)
-        mb(i, j, 0.2)
+        mb(rows.length,rows[0].getElementsByClassName('c').length, 0.2)
     for (var i = 0; i < 5; i++)
-        cb(i, j, 0.1);
+        cb(rows.length,rows[0].getElementsByClassName('c').length, 0.1);
 }
-
+const dragonWantsCheese=()=>{
+    findCheeze(dragoncordx,dragoncordy)
+}
 const findCheeze = async(i, j) => {
 
-    console.log(i, j)
+    
     if (i < 0 || j < 0 || i >= rows.length || j >= rows.length)
         return false;
     if ((arr(i, j).style.backgroundColor.localeCompare('cyan') == 0) || (arr(i, j).style.backgroundColor.localeCompare('red') == 0))

@@ -33,13 +33,46 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 td {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0,0.3);
+    border-collapse:collapse ;
     box-sizing: border-box;
+    padding: 6px;
+
 }
 
 #inpt {
     width: 230px;
+}
+#rat i ,#cheese i{
+    display: block;
+    width: fit-content;
+    margin: auto;
+    font-size: xxx-large;
+    padding: 3px;
+}
+.queen{
+    color: whitesmoke;
+    font-size: xxx-large;
+    width: fit-content;
+    display: block;
+    margin: auto;
+
+}
+#maze{
+    border-collapse: collapse;
+    
+
+}
+.icon img{
+    height: 90px;
+}
+.dragoncontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }

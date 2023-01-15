@@ -4,7 +4,10 @@
     box-sizing: content-box;
     font-size: small;
 }
-
+body{
+    background: rgb(63,94,251);
+background: radial-gradient(circle, rgb(255, 210, 62) 0%, rgb(241, 154, 171) 100%);
+}
 .nav {
     display: flex;
     height: fit-content;
@@ -55,7 +58,8 @@ td {
     padding: 3px;
 }
 .queen{
-    color: whitesmoke;
+    color:rgb(63,94,251) ;
+    color:  radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
     font-size: xxx-large;
     width: fit-content;
     display: block;

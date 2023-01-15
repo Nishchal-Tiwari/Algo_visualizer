@@ -64,7 +64,7 @@ const cb = (r, n, p) => {
 
         for (var j = 0; j < n; j++) {
             if (Math.random() < p)
-                arr(i, j).style.backgroundColor = 'white';
+                arr(i, j).style.backgroundColor = '';
         }
     }
 }
@@ -112,12 +112,12 @@ const nqueen = async(i) => {
             await sleep(speed());
             if (await nqueen(i + 1))
             return true;
-            arr(i, j).style.backgroundColor = 'white';
+            arr(i, j).style.backgroundColor = '';
             arr(i, j).innerHTML = '';
             
 
         }
-        arr(i, j).style.backgroundColor = 'white';
+        arr(i, j).style.backgroundColor = '';
 
     }
     return false;
@@ -201,7 +201,7 @@ const findCheeze = async(i, j) => {
         await sleep(100);
         return true;
     }
-    arr(i, j).style.backgroundColor = 'white';
+    arr(i, j).style.backgroundColor = '';
     return false;
 
 }
